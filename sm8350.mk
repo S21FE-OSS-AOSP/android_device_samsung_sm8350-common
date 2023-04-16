@@ -83,14 +83,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-impl \
-    android.hardware.memtrack@1.0-service \
-    memtrack.lahaina
+    android.hardware.memtrack@1.0-service
 
 PRODUCT_PACKAGES += \
-    libdisplayconfig.qti \
-    libdisplayconfig.qti.vendor \
     libdisplayconfig.system.qti \
-    gralloc.lahaina \
     libqdMetaData \
     libqdMetaData.system \
     libsdmcore \
@@ -136,10 +132,7 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@2.1.vendor \
-    libbatching \
-    libgeofencing \
-    libgnss
+    android.hardware.gnss@2.1.vendor
 
 # Health
 PRODUCT_PACKAGES += \
@@ -174,9 +167,9 @@ PRODUCT_PACKAGES += \
 
 # Init
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.qcom \
-    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)system/etc/fstab.qcom \
-    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom \
+    $(LOCAL_PATH)/rootdir/etc/fstab.default:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.qcom \
+    $(LOCAL_PATH)/rootdir/etc/fstab.default:$(TARGET_COPY_OUT_RAMDISK)system/etc/fstab.qcom \
+    $(LOCAL_PATH)/rootdir/etc/fstab.default:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom \
     $(LOCAL_PATH)/rootdir/etc/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc \
     $(LOCAL_PATH)/rootdir/etc/init/persistentLogging.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/persistentLogging.rc
 
@@ -272,7 +265,6 @@ PRODUCT_PACKAGES += \
     librilutils \
     secril_config_svc \
     libprotobuf-cpp-full \
-    libtrafficcontrol-spoofer \
     libcutils_shim
 
 # Overlays
@@ -291,14 +283,7 @@ PRODUCT_PACKAGES += \
     libOmxEvrcEnc \
     libOmxG711Enc \
     libOmxQcelp13Enc \
-    libOmxVdec \
-    libOmxVenc \
     libstagefrighthw
-
-# Perf
-PRODUCT_PACKAGES += \
-    libqti-perfd-client
-
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -353,12 +338,10 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 
 # Recovery
 PRODUCT_PACKAGES += \
-    init.recovery.qcom.rc \
     fastbootd
 
 # Sensors
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@2.1-service.samsung-multihal \
     android.hardware.sensors@2.0-ScopedWakelock.vendor
 
     PRODUCT_COPY_FILES += \
@@ -419,13 +402,11 @@ PRODUCT_PACKAGES += \
     wpa_supplicant.conf
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini \
     $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
     $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
 
 # Get non-open-source specific aspects
 $(call inherit-product-if-exists, vendor/samsung/sm8350-common/sm8350-common-vendor.mk)
-
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
@@ -434,3 +415,4 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/pixel \
     hardware/samsung \
     hardware/samsung/aidl/power-libperfmgr
+

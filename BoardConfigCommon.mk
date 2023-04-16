@@ -148,7 +148,6 @@ BOARD_MKBOOTIMG_ARGS += --dtb_offset $(BOARD_DTB_OFFSET)
 TARGET_KERNEL_SOURCE := kernel/samsung/sm8350
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_CLANG_COMPILE := true
-TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/$(HOST_OS)-x86/clang-r416183b
 
 # Keymaster
 TARGET_KEYMASTER_VARIANT := samsung
